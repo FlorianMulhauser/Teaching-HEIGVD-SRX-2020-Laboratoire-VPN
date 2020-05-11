@@ -193,13 +193,13 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 
 **Screenshots :**  
 
-
-
 > Debug messages de R1 après un ping de VPC
 >
 > ![](screenshots/3_debug_ping.PNG)
 
-> TODO wireshark
+> voilà la capture de Wireshark
+>
+> ![](screenshots/3_WiresharkOK.PNG)
 
 ---
 
@@ -272,6 +272,20 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 
 **Réponse :**  
 
+> Pour RX1:
+>
+> ![](screenshots/4_R1conf.PNG)
+
+> pour RX2:
+>
+> ![](screenshots/4_R2conf.PNG)
+>
+> TODO
+
+
+
+
+
 ---
 
 
@@ -280,6 +294,20 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 ---
 
 **Réponse :**  
+
+> 
+>
+> Pour R1:
+>
+> ![](screenshots/5_R1key.PNG)
+>
+> Pour R2:
+>
+> ![](screenshots/5_R2key.PNG)
+>
+> Chaque routeur à l'adresse de celui avec qui il va faire un tunnel VPN. On voit que la clef partagée est la même ce qui est juste. (cette clef est beaucoup trop faible.)
+
+
 
 ---
 
