@@ -445,6 +445,13 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
+> Nous sommes dans un mode tunnel, donc les parties chiffrées de notre paquet sont l'entête IP originale, les données et le trailer ESP (cf screenshot du cours).
+![](screenshots/question10.PNG)
+L'algorithme cryptographique correspondant est AES 192 bits.
+![](screenshots/question10bis.PNG)
+
+
+
 ---
 
 
