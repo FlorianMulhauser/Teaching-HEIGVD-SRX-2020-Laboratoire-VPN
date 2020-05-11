@@ -1,7 +1,7 @@
 # Teaching-HEIGVD-SRX-2020-Laboratoire-VPN
 
 
-Groupe: Cuénoud Robin, Mülhauser Florian
+Groupe: Cuénoud Robin, Dupont Maxime, Mülhauser Florian
 
 **Ce travail de laboratoire est à faire en équipes de 3 personnes**
 
@@ -280,7 +280,9 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 >
 > ![](screenshots/4_R2conf.PNG)
 >
-> TODO
+> On remarque plusieurs choses , premièrement on peut noter que R1 a seulement une seule policy de configurée, alors que R2 en a deux. On voit que la première policy de R2, avec  une priorité de 10 ne sera pas utilisée puisque R1 ne possède pas de policy correspondante. Cependant la deuxième policy, de priorité 20, est identique à celle de R1, ils pourront donc utiliser cette policy pour communiquer entre eux.   
+> Deuxièmement on peut noter que l'algorithme MD5 n'est pas fiable , puisqu'il est cassé.
+> Le groupe de Diffie-Hellman proposé n'est pas suffisant, il est recommandé d'utiliser au minimum le group 14.
 
 
 
@@ -489,6 +491,11 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
+> Nous sommes dans un mode tunnel, donc les parties chiffrées de notre paquet sont l'entête IP originale, les données et le trailer ESP (cf screenshot du cours).
+> ![](screenshots/question10.PNG)
+> L'algorithme cryptographique correspondant est AES 192 bits.
+> ![](screenshots/question10bis.PNG)
+
 ---
 
 
@@ -508,3 +515,4 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 **Réponse :**  
 
 ---
+
