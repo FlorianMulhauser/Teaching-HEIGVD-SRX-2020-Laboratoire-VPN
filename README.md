@@ -448,7 +448,7 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 >   Pour IKE:
 >
 >   * Lifetime [s] : comme précedemment, c'est le temps de vie fixé pour les SA de la phase 1 de IKE. Une fois ce temps écoulé, elle seront détruites
->   * KeepAlive :  cela nous permet de configurer l'interval de tmeps entre les envois des paquets "Keep Alive", afin de prolongé la durée de vie de la SA.
+>   * KeepAlive :  cela nous permet de configurer l'interval de temps entre les envois des paquets "Keep Alive", afin de prolongé la durée de vie de la SA.
 >
 >   
 
@@ -508,7 +508,6 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 > Comme on peut le voir sur le screenshot des slides du cours juste au dessus, les parties authentifiées sont le header ESP, l'entête IP originale , les données ainsi que le trailer ESP. Comme on peut le remarquer sur la deuxième capture d'écran de la question 10, l'algorithme cryptographique correspondant est HMAC avec SHA1.
 
 ---
-
 
 **Question 12: Expliquez quelles sont les parties du paquet qui sont protégées en intégrité. Donnez l’algorithme cryptographique correspondant.**
 
