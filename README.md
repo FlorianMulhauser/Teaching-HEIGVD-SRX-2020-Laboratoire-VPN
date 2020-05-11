@@ -1,7 +1,8 @@
+
 # Teaching-HEIGVD-SRX-2020-Laboratoire-VPN
 
 
-Groupe: Cuénoud Robin, Mülhauser Florian
+Groupe: Cuénoud Robin, Dupont Maxime, Mülhauser Florian
 
 **Ce travail de laboratoire est à faire en équipes de 3 personnes**
 
@@ -280,10 +281,9 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 >
 > ![](screenshots/4_R2conf.PNG)
 >
-> On remarque plusieurs choses , premièrement onpeut noter que R1 a seulement une seule policy de configurée, alors que R2 en a deux. On voit que la première policy de R2, avec  une priorité de 10 ne sera pas utilisée puisque R1 ne possède pas de policy correspondante. Cependant la deuxième policy, de priorité 20, est identique à celle de R1, ils pourront donc utiliser cette policy pour communiquer entre eux.   
-Deuxièmement on peut noter que l'algorithme MD5 n'est pas fiable , puisqu'il est cassé.
-Le groupe de Diffie-Hellman proposé n'est pas suffisant, il est recommandé d'utiliser au minimum le group 14.
-
+> On remarque plusieurs choses , premièrement on peut noter que R1 a seulement une seule policy de configurée, alors que R2 en a deux. On voit que la première policy de R2, avec  une priorité de 10 ne sera pas utilisée puisque R1 ne possède pas de policy correspondante. Cependant la deuxième policy, de priorité 20, est identique à celle de R1, ils pourront donc utiliser cette policy pour communiquer entre eux.   
+> Deuxièmement on peut noter que l'algorithme MD5 n'est pas fiable , puisqu'il est cassé.
+> Le groupe de Diffie-Hellman proposé n'est pas suffisant, il est recommandé d'utiliser au minimum le group 14.
 
 
 
@@ -370,6 +370,18 @@ show access-list TO-CRYPT
 show crypto map
 ```
 
+
+
+> R1:
+>
+> ![](screenshots/confIPsecR1.PNG)
+>
+> configure 
+>
+> R2:
+>
+> ![](screenshots/ConfIPsecR2.PNG)
+
 ## Activation IPsec & test
 
 Pour activer cette configuration IKE & IPsec il faut appliquer le « crypto map » sur l’interface de sortie du trafic où vous voulez que l’encryption prenne place. 
@@ -405,6 +417,16 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 
 **Réponse :**  
 
+> Nous pouvons voir avec ces captures que les paquets de ping entre le VPC et le loopback1 du routeur RX1 marchent bien. 
+>
+> De plus on peut voir qu'elles sont cryptés, ce n'est plus des paquets icmp, c'est maintenant dans notre tunnel créé. On voit les paquet de protocole ISAKMP pour initialisé, et ensuite les paquets qui passent sont maintenant des ESP (Encapsulating Security Payload), donc des paquets cryptés.
+>
+> ![](screenshots/6_wshark.PNG)
+>
+> ![](screenshots/6_debug_ping.PNG)
+>
+> 
+
 ---
 
 **Question 7: Reportez dans votre rapport une petite explication concernant les différents « timers » utilisés par IKE et IPsec dans cet exercice (recherche Web). :**
@@ -412,6 +434,25 @@ Pensez à démarrer votre sniffer sur la sortie du routeur R2 vers internet avan
 ---
 
 **Réponse :**  
+
+> Les timers, comme les lifetimes, permettent de donner la possibilité de refaire une connexion sans devoir à nouveau créer depuis 0: donc de devoir créer et partager la clé. Sachant que les opérations de clé sont assez coûteuse, ça sera donc un bon gain de temps.
+>
+> pour IPSec:
+>
+> * Idle-time : Si la SA reste idle (inutilisée) plus un certain temps, alors elle sera effacée
+>
+> * Lifetime [KB] et [s] : Ici on donne directement un temps de vie fixe des SA, qui s'échange pendant le contact avec la phase 2 de IKE. Une fois ces temps fini, les SA seront effacée
+>
+>   
+>
+>   Pour IKE:
+>
+>   * Lifetime [s] : comme précedemment, c'est le temps de vie fixé pour les SA de la phase 1 de IKE. Une fois ce temps écoulé, elle seront détruites
+>   * KeepAlive :  cela nous permet de configurer l'interval de tmeps entre les envois des paquets "Keep Alive", afin de prolongé la durée de vie de la SA.
+>
+>   
+
+
 
 ---
 
@@ -427,6 +468,8 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 **Réponse :**  
 
+> Le protocole VPN utilisé est ESP, cf question 6).
+
 ---
 
 
@@ -434,7 +477,11 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 
 ---
 
-**Réponse :**  
+**Réponse :** 
+
+> Nous pouvons voir dans cette capture  set set default et set strong . Par défaut c'est mode transport, mais pour le set STRONG, c'est un mode tunnel.
+>
+> ![](screenshots/9_.PNG)
 
 ---
 
@@ -446,11 +493,9 @@ En vous appuyant sur les notions vues en cours et vos observations en laboratoir
 **Réponse :**  
 
 > Nous sommes dans un mode tunnel, donc les parties chiffrées de notre paquet sont l'entête IP originale, les données et le trailer ESP (cf screenshot du cours).
-![](screenshots/question10.PNG)
-L'algorithme cryptographique correspondant est AES 192 bits.
-![](screenshots/question10bis.PNG)
-
-
+> ![](screenshots/question10.PNG)
+> L'algorithme cryptographique correspondant est AES 192 bits.
+> ![](screenshots/question10bis.PNG)
 
 ---
 
