@@ -193,6 +193,14 @@ Pour déclencher et pratiquer les captures vous allez « pinger » votre routeur
 
 **Screenshots :**  
 
+
+
+> Debug messages de R1 après un ping de VPC
+>
+> ![](screenshots/3_debug_ping.PNG)
+
+> TODO wireshark
+
 ---
 
 ## Configuration VPN LAN 2 LAN
