@@ -130,6 +130,12 @@ R2# show ip dhcp pool
 R2# show ip dhcp binding
 ```
 
+
+
+> DHCP est fonctionnel, VPC a une IP dans la range donnée, c'est 172.17.1.1
+>
+> ![](screenshots/2_dhcpOK.PNG)
+
 Côté station (VPC) vous pouvez valider les paramètres reçus avec la commande `show ip`. Si votre station n’a pas reçu d’adresse IP, utilisez la commande `ip dhcp`.
 
 - Contrôlez la connectivité sur toutes les interfaces à l’aide de la commande ping.
@@ -153,6 +159,16 @@ Pour votre topologie il est utile de contrôler la connectivité entre :
 ---
 
 **Réponse :**  
+
+> R1 vers ISP1 (dest 193.100.100.254) fonctionne
+>
+> ![](screenshots/2_pingR1OK.PNG)
+>
+> les pings de R2 vers ISP2 (193.200.200.254), vers RX1 (193.100.100.2) et vers VPC (172.17.1.1) fonctionnent tous.
+>
+> ![](screenshots/2_pingR2OK.PNG)
+
+
 
 ---
 
