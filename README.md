@@ -460,6 +460,7 @@ L'algorithme cryptographique correspondant est AES 192 bits.
 ---
 
 **Réponse :**  
+> Comme on peut le voir sur le screenshot des slides du cours juste au dessus, les parties authentifiées sont le header ESP, l'entête IP originale , les données ainsi que le trailer ESP. Comme on peut le remarquer sur la deuxième capture d'écran de la question 10, l'algorithme cryptographique correspondant est HMAC avec SHA1.
 
 ---
 
@@ -469,5 +470,6 @@ L'algorithme cryptographique correspondant est AES 192 bits.
 ---
 
 **Réponse :**  
+> Cf capture dans la question 10 (show crypto ipsec transform-set) , on  a esp-192-aes qui protege le paquet initial. (protocole esp) , l'algo pour l'integrité est esp-sha-hmac donc sha-1
 
 ---
