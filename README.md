@@ -280,7 +280,10 @@ Vous pouvez consulter l’état de votre configuration IKE avec les commandes su
 >
 > ![](screenshots/4_R2conf.PNG)
 >
-> TODO
+> On remarque plusieurs choses , premièrement onpeut noter que R1 a seulement une seule policy de configurée, alors que R2 en a deux. On voit que la première policy de R2, avec  une priorité de 10 ne sera pas utilisée puisque R1 ne possède pas de policy correspondante. Cependant la deuxième policy, de priorité 20, est identique à celle de R1, ils pourront donc utiliser cette policy pour communiquer entre eux.   
+Deuxièmement on peut noter que l'algorithme MD5 n'est pas fiable , puisqu'il est cassé.
+Le groupe de Diffie-Hellman proposé n'est pas suffisant, il est recommandé d'utiliser au minimum le group 14.
+
 
 
 
