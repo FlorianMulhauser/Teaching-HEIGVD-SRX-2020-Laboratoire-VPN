@@ -1,5 +1,8 @@
 # Teaching-HEIGVD-SRX-2020-Laboratoire-VPN
 
+
+Groupe: Cuénoud Robin, Mülhauser Florian
+
 **Ce travail de laboratoire est à faire en équipes de 3 personnes**
 
 **Pour ce travail de laboratoire, il est votre responsabilité de chercher vous-même sur internet, le support du cours ou toute autre source (vous avez aussi le droit de communiquer avec les autres équipes), toute information relative au sujet VPN, le logiciel eve-ng, les routeur Cisco, etc que vous ne comprenez pas !**
